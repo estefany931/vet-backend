@@ -18,7 +18,7 @@ class AdminEspecie{
             data:datos
             
         }
-    )
+    );
 
     }
     listarEspecie(req, res){

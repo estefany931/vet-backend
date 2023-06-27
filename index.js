@@ -1,5 +1,4 @@
 const express=require("express");
-
 const AdminEspecie=require("./AdminEspecie");
 
 class AteneaVetAPI{
@@ -7,24 +6,22 @@ class AteneaVetAPI{
 
     constructor(){
 
-        this.puerto=3001
+        this.puerto=3002
 
         this.app= express();
 
         this.adminEspecie= new AdminEspecie();
 
+        this.app.use(this.configurarCORS);
+        this.app.use(express.json());
+
         this.app.post("/crear_especie", (req, res)=>{
             this.adminEspecie.crearEspecie(req, res);
 
         });
-
         this.app.get("/listar_especie", (req, res)=>{
             this.adminEspecie.listarEspecie(req,res);
         });
-
-        this.app.use(this.configurarCORS);
-        this.app.use(express.json());
-
     }
 
     configurarCORS(req, res, next){
