@@ -11,8 +11,12 @@ datasource db {
   
 }
 
-model Especie{
+model especie{
   
   id_especie Int @id @default(autoincrement())
-   
+  nombre String
+  clasificacion String
+  esperanza_vida Int
+  peso_promedio Float
+
 }

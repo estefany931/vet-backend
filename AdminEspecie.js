@@ -2,6 +2,7 @@
 const { PrismaClient } =require('@prisma/client');
 
 
+
 class AdminEspecie{
 
     constructor(){
@@ -13,16 +14,23 @@ class AdminEspecie{
 
     const datos=req.body;
     console.log("estos son los datos que estoy recibiendo" + datos);
+    
+    
     const especie= await this.prisma.especie.create(
         {
             data:datos
             
+            
         }
     );
 
-    }
-    listarEspecie(req, res){
+    res.json(especie);
 
+    }
+    async listarEspecies(req, res){
+
+        const especies= await this.prisma.especie.findMany();
+        res.json(especies);
     }
 }
 module.exports=AdminEspecie;

@@ -6,7 +6,7 @@ class AteneaVetAPI{
 
     constructor(){
 
-        this.puerto=3002
+        this.puerto=3007
 
         this.app= express();
 
@@ -19,8 +19,8 @@ class AteneaVetAPI{
             this.adminEspecie.crearEspecie(req, res);
 
         });
-        this.app.get("/listar_especie", (req, res)=>{
-            this.adminEspecie.listarEspecie(req,res);
+        this.app.get("/listar_especies", (req, res)=>{
+            this.adminEspecie.listarEspecies(req,res);
         });
     }
 
@@ -48,4 +48,5 @@ class AteneaVetAPI{
 }
 
 const ateneaVetAPI= new AteneaVetAPI();
-ateneaVetAPI.iniciarServidor();
+ateneaVetAPI.iniciarServidor(); 
+
